@@ -62,13 +62,12 @@ const App = () => {
           <button className='btn' type='submit'>Search</button>
         </form>
       </div>
-      <div className="movies-row-list">
+      <div className="d-flex movies-row-list">
         <div className="search-movies">
           <h2>Search result</h2>
           {movies ? <MovieList movies={movies} handleFavoriteBtnClick={addToFavorite}
-            FavoriteButton={AddFavorite} /> : (<div className='search-message'>Search something...</div>)}
+            FavoriteButton={AddFavorite} /> : (<div className='search-message txt-center'>Search something...</div>)}
         </div>
-        <hr />
         <div className="favorite-movies">
           <h2>Favorites</h2>
           <MovieList movies={favorites} FavoriteButton={RemoveFavorite} handleFavoriteBtnClick={removeFromFavorite} />

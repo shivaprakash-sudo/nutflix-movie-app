@@ -110,14 +110,27 @@ input,
   max-height: 25%;
 }
 
+.search-movies,
+.favorite-movies {
+  width: 47%;
+}
+
 .search-message {
   display: grid;
   place-items: center;
 }
 
+.movies-row-list {
+  justify-content: space-between;
+}
+
 .movie-preview {
   max-width: 100%;
-  justify-content: flex-start;
+  justify-content: space-between;
+}
+
+.movie-container {
+  width: 80%;
 }
 
 .poster {
@@ -137,13 +150,7 @@ input,
   margin: 0.5em;
 }
 
-@media (max-width: 330px) {
-  .grid {
-    grid-template-columns: auto;
-  }
-}
-
-@media (min-width: 600px) {
+@media (min-width: 700px) {
   html {
     font-size: 18px;
   }
@@ -169,11 +176,5 @@ input,
   }
   .poster-container {
     max-width: 20%;
-  }
-}
-
-@media (min-width: 900px) {
-  .grid {
-    grid-template-columns: repeat(2, auto);
   }
 }
