@@ -2,6 +2,9 @@ import { useState, useEffect } from 'react';
 import MovieList from './components/MovieList';
 import './index.css';
 import Heading from "./components/Heading";
+import AddFavorite from './components/AddFavorite';
+import RemoveFavorite from './components/RemoveFavorite';
+
 
 const App = () => {
 
@@ -16,7 +19,6 @@ const App = () => {
     const JSONResponse = await data.json();
     const movies = JSONResponse.Search;
     setMovies(movies);
-    console.log(movies);
   }
 
   useEffect((e) => {
@@ -26,7 +28,20 @@ const App = () => {
   const addToFavorite = (movie) => {
     const newFav = [...favorites, movie];
     setFavorites(newFav);
+    console.log("Added to Favorites");
   }
+
+  const removeFromFavorite = (movie) => {
+    const newFav = favorites.filter(
+      (favorite) => favorite.imdbID !== movie.imdbID
+    );
+    setFavorites(newFav);
+    console.log("Removed from favorites");
+  }
+
+  // function isFavorite(movie) {
+  //   return favorites.includes(movie);
+  // }
 
   return (
     <div className="container home" >
@@ -48,8 +63,15 @@ const App = () => {
         </form>
       </div>
       <div className="movies-row-list">
-        <div className="movies">
-          {movies ? <MovieList movies={movies} handleFavoriteBtnClick={addToFavorite} /> : (<div className='search-message'>Search something...</div>)}
+        <div className="search-movies">
+          <h2>Search result</h2>
+          {movies ? <MovieList movies={movies} handleFavoriteBtnClick={addToFavorite}
+            FavoriteButton={AddFavorite} /> : (<div className='search-message'>Search something...</div>)}
+        </div>
+        <hr />
+        <div className="favorite-movies">
+          <h2>Favorites</h2>
+          <MovieList movies={favorites} FavoriteButton={RemoveFavorite} handleFavoriteBtnClick={removeFromFavorite} />
         </div>
       </div>
     </div >
