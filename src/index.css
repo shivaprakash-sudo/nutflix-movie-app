@@ -1,9 +1,165 @@
-body {
-  background: #141414 !important;
-  color: #fff !important;
+:root {
+  --greenish-cyan-theme: #20e386;
 }
 
-.movies-row-list > .row {
-  overflow-x: auto;
-  flex-wrap: nowrap;
+html {
+  font-size: 14px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  letter-spacing: 1.15px;
+}
+
+body {
+  background: #141414;
+  color: #fff;
+  font-family: "Bebas Neue", cursive;
+}
+
+h1 {
+  font-size: 3rem;
+  margin: 0.5em 0;
+  letter-spacing: 5px;
+}
+
+img {
+  /* min-width: 150px; */
+  max-width: 100%;
+}
+
+p {
+  line-height: 1.7;
+}
+
+input {
+  width: 100%;
+  padding: 0.5em;
+  font-size: inherit;
+  margin-bottom: 1em;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+}
+
+input,
+.btn {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 2%;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 1em;
+}
+
+/* default button style */
+.btn {
+  display: flex;
+  margin: 0.7em 0;
+  cursor: pointer;
+  padding: 0.5em 1em;
+  border: none;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+.btn,
+.movie-preview {
+  transition: transform 0.4s ease-out;
+  -webkit-transition: transform 0.4s ease-out;
+  -moz-transition: transform 0.4s ease-out;
+  -ms-transition: transform 0.4s ease-out;
+  -o-transition: transform 0.4s ease-out;
+}
+
+.btn:hover,
+.movie-preview:hover {
+  transform: scale(1.07);
+  -webkit-transform: scale(1.07);
+  -moz-transform: scale(1.07);
+  -ms-transform: scale(1.07);
+  -o-transform: scale(1.07);
+}
+
+.txt-center {
+  text-align: center;
+}
+
+.m-auto {
+  margin: auto;
+}
+
+.search-message {
+  display: grid;
+  place-items: center;
+}
+
+.poster {
+  display: block;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+}
+
+.movie-preview {
+  /* background: #fff; */
+  /* position: relative; */
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.heart-container {
+  align-items: center;
+}
+
+.heart-icon {
+  margin: 0.5em;
+}
+
+@media (max-width: 330px) {
+  .grid {
+    grid-template-columns: auto;
+  }
+}
+
+@media (min-width: 600px) {
+  html {
+    font-size: 18px;
+  }
+  input {
+    margin: 0;
+  }
+  .d-flex {
+    display: flex;
+  }
+  .search {
+    align-items: center;
+  }
+  .poster {
+    margin: 1em;
+  }
+}
+
+@media (min-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(5, auto);
+  }
 }
