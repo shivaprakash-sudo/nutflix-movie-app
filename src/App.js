@@ -4,7 +4,7 @@ import './index.css';
 import Heading from "./components/Heading";
 import AddFavorite from './components/AddFavorite';
 import RemoveFavorite from './components/RemoveFavorite';
-
+import Axios from 'axios';
 
 const App = () => {
 
@@ -26,10 +26,14 @@ const App = () => {
   }, [setSearch]);
 
   const addToFavorite = (movie) => {
-    const newFav = [...favorites, movie];
+    const uniqueArray = favorites.filter((favorite) => favorite.imdbID !== movie.imdbID)
+    const newFav = [...uniqueArray, movie];
     setFavorites(newFav);
     console.log("Added to Favorites");
-  }
+    Axios.post("http://localhost:5500/api/add-favorite", {
+      movieID: movie.id
+    })
+  };
 
   const removeFromFavorite = (movie) => {
     const newFav = favorites.filter(
@@ -37,11 +41,7 @@ const App = () => {
     );
     setFavorites(newFav);
     console.log("Removed from favorites");
-  }
-
-  // function isFavorite(movie) {
-  //   return favorites.includes(movie);
-  // }
+  };
 
   return (
     <div className="container home" >
