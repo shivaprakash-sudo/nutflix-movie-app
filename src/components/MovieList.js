@@ -5,7 +5,9 @@ const MovieList = ({ movies, FavoriteButton, handleFavoriteBtnClick }) => {
             {movies.map((movie, index) => (
                 <div key={index} className="d-flex movie-preview">
                     <div className="movie-container d-flex">
-                        <div className="poster-container"><img className="poster" src={movie.Poster} alt="movie poster" /></div>
+                        <div className="poster-container"><img className="poster" src={movie.Poster} alt="movie poster" />
+                            <span onClick={() => handleFavoriteBtnClick(movie)} className="fav-icon">
+                                <FavoriteButton /></span></div>
                         <div className="movie-details">
                             <div className="details">
                                 <h2 className="movie-heading">{movie.Title}</h2>
@@ -14,9 +16,7 @@ const MovieList = ({ movies, FavoriteButton, handleFavoriteBtnClick }) => {
                             </div>
                         </div>
                     </div>
-                    <div onClick={() => handleFavoriteBtnClick(movie)}>
-                        <FavoriteButton />
-                    </div>
+
                 </div>
             ))}
         </div>
